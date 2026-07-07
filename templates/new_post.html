@@ -16,6 +16,20 @@
     <textarea name="content"></textarea>
   </p>
 
+  <h3>Tags</h3>
+
+  {% for tag in tags %}
+    <div>
+      <input
+        type="checkbox"
+        name="tags"
+        value="{{ tag.id }}"
+        id="tag{{ tag.id }}"
+      >
+      <label for="tag{{ tag.id }}">{{ tag.name }}</label>
+    </div>
+  {% endfor %}
+
   <button>Add Post</button>
   <a href="/users/{{ user.id }}">Cancel</a>
 </form>

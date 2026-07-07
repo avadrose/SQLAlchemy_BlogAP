@@ -16,6 +16,21 @@
     <textarea name="content">{{ post.content }}</textarea>
   </p>
 
+  <h3>Tags</h3>
+
+  {% for tag in tags %}
+    <div>
+      <input
+        type="checkbox"
+        name="tags"
+        value="{{ tag.id }}"
+        id="tag{{ tag.id }}"
+        {% if tag in post.tags %}checked{% endif %}
+      >
+      <label for="tag{{ tag.id }}">{{ tag.name }}</label>
+    </div>
+  {% endfor %}
+
   <button>Save</button>
   <a href="/posts/{{ post.id }}">Cancel</a>
 </form>
